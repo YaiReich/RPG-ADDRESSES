@@ -1,0 +1,9 @@
+0001.00                                             UNIQUE                      
+0002.00                 R RADDRESSP                                             
+0003.00                   ACITYID        3  0                                   
+0004.00                   ASTREETID      3  0                                   
+0005.00                   ANUMBER        3  0                                   
+0006.00                   ANANE         20A                                     
+0007.00                 K ACITYID                                               
+0008.00                 K ASTREETID                                             
+0009.00                 K ANUMBER                                               
