@@ -1,5 +1,8 @@
-0001.00                                             UNIQUE                     
-0002.00                 R RCITYPF                                              
-0003.00                   CCITYID        3  0                                  
-0004.00                   CCITYNM       10A                                    
-0005.00                 K CCITYID                                              
+ FMT PF .....A..........T.Name++++++RLen++TDpB......Functions++++++++++++++++++ 
+        *************** Beginning of data ************************************* 
+0001.00                                             UNIQUE                      
+0002.00                 R RCITYPF                                               
+0003.00                   CCITYID        3  0                                   
+0004.00                   CCITYNM       10A                                     
+0005.00                 K CCITYID                                               
+        ****************** End of data **************************************** 
