@@ -1,0 +1,10 @@
+ FMT PF .....A..........T.Name++++++RLen++TDpB......Functions++++++++++++++++++ 
+        *************** Beginning of data ************************************* 
+0001.00                                             UNIQUE                      
+0002.00                 R RSTREETP                                              
+0003.00                   SCITYID        3  0                                   
+0004.00                   SSTREETID      3  0                                   
+0005.00                   SSTREETNM     10A                                     
+0006.00                 K SCITYID                                               
+0007.00                 K SSTREETID                                             
+        ****************** End of data ****************************************                                 
