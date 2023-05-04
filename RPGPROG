@@ -1,0 +1,93 @@
+ FMT FX FFilename++IPEASF.....L.....A.Device+.Keywords+++++++++++++++++++++++++ 
+        *************** Beginning of data ************************************* 
+0001.00 FADENTRY   CF   E             WORKSTN                                   
+0002.00 FADDRESSP  UF A E           K DISK                                      
+0003.00 FCITYPF    IF   E           K DISK                                      
+0004.00 FSTREETP   IF   E           K DISK                                      
+0005.00 C*                                                                      
+0006.00 C                   EXFMT     MAIN                                      
+0007.00 C     *IN03         DOWEQ     *OFF                                      
+0008.00 C                   EXSR      CHKCITY                                   
+0009.00 C     *IN10         IFEQ      *ON                                       
+0010.00 C  N03              EXSR      CHKSTREET                                 
+0011.00 C                   ENDIF                                               
+0012.00 C     *IN03         IFEQ      *OFF                                      
+0013.00 C   12              EXSR      CHKADDRESS                                
+0014.00 C                   ENDIF                                               
+0015.00 C                   SETOFF                                       101231 
+0016.00 C                   SETOFF                                       303233 
+0017.00 C                   MOVE      *BLANKS       CCITYID                     
+0018.00 C                   MOVE      *BLANKS       SSTREETID                   
+0019.00 C                   MOVE      *BLANKS       ANUMBER                     
+0020.00 C                   MOVE      *BLANKS       ANAME                       
+0021.00 C  N03              EXFMT     MAIN                                      
+0022.00 C                   ENDDO                                               
+0023.00 C                   SETON                                        LR     
+0024.00 C*                                                                      
+0025.00 C     CHKCITY       BEGSR                                               
+0026.00 C     CCITYID       CHAIN     RCITYPF                            3232 
+0027.00 C  N32              SETON                                        10   
+0028.00 C                   EXFMT     MAIN                                    
+0029.00 C                   ENDSR                                             
+0030.00 C*                                                                    
+0031.00 C     CHKSTREET     BEGSR                                             
+0032.00 C     KSTREET       CHAIN     RSTREETP                           3232 
+0033.00 C  N32              SETON                                        12   
+0034.00 C  N03              EXFMT     MAIN                                   
+0035.00 C                   ENDSR                                               
+0036.00 C*                                                                      
+0037.00 C     CHKADDRESS    BEGSR                                               
+0038.00 C                   SETON                                        08     
+0039.00 C   02              EXSR      ADD1                                      
+0040.00 C   04              EXSR      UPDATE1                                   
+0041.00 C   06              EXSR      DELETE1                                   
+0042.00 C   08              EXSR      DISPLAY1                                  
+0043.00 C                   ENDSR                 
+0044.00 C*                                                                    
+0045.00 C     ADD1          BEGSR                                             
+0046.00 C                   SETOFF                                       08   
+0047.00 C     KADDRESS      CHAIN     RADDRESSP                          3131 
+0048.00 C  N31              SETON                                        33   
+0049.00 C                   EXFMT     MAIN                                    
+0050.00 C     *IN03         IFEQ      *OFF                                    
+0051.00 C                   MOVE      CCITYID       ACITYID                   
+0052.00 C                   MOVE      SSTREETID     ASTREETID                 
+0053.00 C   31              WRITE     RADDRESSP                                
+0054.00 C                   ENDIF                                              
+0055.00 C                   ENDSR                                              
+0056.00 C*                                                                     
+0057.00 C     UPDATE1       BEGSR                                              
+0058.00 C                   SETOFF                                       08    
+0059.00 C     KADDRESS      CHAIN     RADDRESSP                          3232  
+0060.00 C  N32              SETON                                        31    
+0061.00 C                   EXFMT     MAIN                           
+0062.00 C  N32              UPDATE    RADDRESSP                                 
+0063.00 C                   ENDSR                                               
+0064.00 C*                                                                      
+0065.00 C     DELETE1       BEGSR                                               
+0066.00 C                   SETOFF                                       08     
+0067.00 C                   SETON                                        30     
+0068.00 C     KADDRESS      CHAIN     RADDRESSP                          3232   
+0069.00 C  N32              SETON                                        31     
+0070.00 C                   EXFMT     MAIN                                      
+0071.00 C     *IN03         IFEQ      *OFF                                      
+0072.00 C  N32              DELETE    RADDRESSP                                 
+0073.00 C                   ENDIF                                               
+0074.00 C                   ENDSR                                               
+0075.00 C*                                                                      
+0076.00 C     DISPLAY1      BEGSR                                               
+0077.00 C     KADDRESS      CHAIN     RADDRESSP                          3232   
+0078.00 C  N32              SETON                                        3031   
+0079.00 C                   EXFMT     MAIN                                      
+0080.00 C                   ENDSR                                             
+0081.00 C*                                                                    
+0082.00 C     *INZSR        BEGSR                                             
+0083.00 C     KSTREET       KLIST                                             
+0084.00 C                   KFLD                    CCITYID                   
+0085.00 C                   KFLD                    SSTREETID                 
+0086.00 C     KADDRESS      KLIST                                             
+0087.00 C                   KFLD                    CCITYID                   
+0088.00 C                   KFLD                    SSTREETID         
+0089.00 C                   KFLD                    ANUMBER                     
+0090.00 C                   ENDSR                                               
+        ****************** End of data **************************************** 
